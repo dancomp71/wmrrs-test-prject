@@ -1,0 +1,90 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<div class="text-center">
+    <h1 class="display-4">Reservations</h1>
+</div>
+<div>
+    <div id="loading-reservations">
+        <h3>Loading...</h3></div>
+    <div id="current-reservations" style="display:none;">
+        <h3>Current Reservations:</h3>
+        <div>
+            <button id="add-reservation" class="btn btn-primary">Add Reservation</button>
+            <div id="no-reservations" style="display: block;">No reservations found.</div>
+            <div id="section-reservations" style="display: none;">
+                <table id="table-reservations" class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <td>Time</td>
+                            <td>Date</td>
+                            <td>Party's Name</td>
+                            <td>Party Count</td>
+                            <td>Fulfilled</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="new-reservation" style="display:none;">
+        <h3>New Reservation</h3>
+        <form id="new-reservation-form">
+            <fieldset>
+                <div class="form-group">
+                    <label for="dateInput">Date</label>
+                    <input type="datetime"
+                           class="form-control"
+                           id="dateInput"
+                           name="dateInput"
+                           aria-describedby="dateHelp"
+                           required />
+                    <small id="dateHelp" class="form-text text-muted">Enter the date of reservation.</small>
+                </div>
+                <div class="form-group">
+                    <label for="timeInput">Time</label>
+                    <input type="time"
+                           class="form-control text-box single-line"
+                           id="timeInput"
+                           name="timeInput"
+                           aria-describedby="timeHelp"
+                           required />
+                    <small id="timeHelp" class="form-text text-muted">Enter the time of reservation.</small>
+                </div>
+                <div class="form-group">
+                    <label for="partyNameInput">Party's Name</label>
+                    <input type="text"
+                           class="form-control"
+                           id="partyNameInput"
+                           name="partyNameInput"
+                           aria-describedby="partyNameHelp"
+                           required />
+                    <small id="partyNameHelp" class="form-text text-muted">Enter the party's name.</small>
+                </div>
+                <div class="form-group">
+                    <label for="numOfPplInput">Number of People in the party</label>
+                    <input type="number"
+                           class="form-control"
+                           id="numOfPplInput"
+                           name="numOfPplInput"
+                           aria-describedby="numOfPplHelp"
+                           required />
+                    <small id="numOfPplHelp" class="form-text text-muted">Enter number of people in the party.</small>
+                </div>
+            </fieldset>
+            <div>&nbsp;</div>
+            <button type="submit" id="submit-reservation" class="btn btn-primary">Submit</button>
+            <button type="button" id="cancel-reservation" class="btn btn-warning">Cancel</button>
+        </form>
+    </div>
+</div>
